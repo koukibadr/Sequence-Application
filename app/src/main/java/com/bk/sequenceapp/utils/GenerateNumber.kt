@@ -10,10 +10,6 @@ class GenerateNumber() {
 
     var seconds: Int = 0
 
-    init {
-        seconds = Random.nextInt(5..10)
-    }
-
     suspend fun generateNumber() : Int {
         return coroutineScope {
             delayForSeconds(seconds*1000L)
@@ -23,5 +19,10 @@ class GenerateNumber() {
 
     private suspend fun delayForSeconds(seconds: Long) {
         delay(seconds)
+    }
+
+    fun randomizeSeconds() : Int{
+        seconds = Random.nextInt(5..10)
+        return  seconds
     }
 }

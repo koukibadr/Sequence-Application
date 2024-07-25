@@ -8,9 +8,10 @@ import com.bk.sequenceapp.utils.MessageTypes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 const val MAX_ERRORS = 3
-class SequenceActivityVM: ViewModel() {
+class SequenceActivityVM @Inject constructor(val generateNumber: GenerateNumber): ViewModel() {
 
     private var gameSteps : MutableList<GameSteps> = mutableListOf()
     var errorCount: Int = 0
@@ -94,8 +95,7 @@ class SequenceActivityVM: ViewModel() {
     }
 
     private suspend fun generateFinalStep(){
-        val generateNumber = GenerateNumber()
-        timerLiveData.value = generateNumber.seconds
+        timerLiveData.value = generateNumber.randomizeSeconds()
         val finalStep = generateNumber.generateNumber()
         finalStepLiveData.value = finalStep
     }

@@ -7,21 +7,25 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bk.sequenceapp.ApplicationClass
 import com.bk.sequenceapp.R
 import com.bk.sequenceapp.databinding.ActivitySequenceBinding
 import com.bk.sequenceapp.utils.GameSteps
 import com.bk.sequenceapp.utils.title
+import javax.inject.Inject
 
 class SequenceActivity : AppCompatActivity() {
 
     lateinit var sequenceActivityBinding : ActivitySequenceBinding
+
+    @Inject
     lateinit var sequenceActivityVM: SequenceActivityVM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (application as ApplicationClass).appComponent.injectSequenceActivity(this)
 
         sequenceActivityBinding = ActivitySequenceBinding.inflate(layoutInflater)
-        sequenceActivityVM = SequenceActivityVM()
         sequenceActivityBinding.viewmodel = sequenceActivityVM
         setContentView(sequenceActivityBinding.root)
 
