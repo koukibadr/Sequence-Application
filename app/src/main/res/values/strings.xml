@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SequenceApp</string>
+    <string name="start_button_error">Vous devez cliquer sur le "Start" pour commencer</string>
+    <string name="wrong_step_pressed">tu as appuyé sur la mauvaise étape, réessaye</string>
+    <string name="wrong_final_step">mauvaise dernière étape enfoncée, assurez-vous</string>
+    <string name="limit_error_message">vous avez atteint la limite des erreurs, recommencez en cliquant sur le bouton Démarrer</string>
+    <string name="success_message">Vous avez gagné, vous avez appuyé sur tous les bons boutons</string>
+    <string name="final_step_message">ta dernière étape est %d, c\'est ta dernière étape pour gagner</string>
 </resources>
